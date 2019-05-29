@@ -4,8 +4,7 @@ agrid = me.createAvailableSpaces(grid)
 
 
 while(len(agrid) > 0):
-    print(grid)
-    me.printGrid(grid)
+    me.printGridPretty(grid)
     me.printAvailableSpaces(agrid)
 
     value = int (input("enter an available int: "))

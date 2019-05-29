@@ -52,7 +52,7 @@ def checkDeadGrid(grid, space=-1):
         for num in range(minNum, minNum+8):
             if grid[num] == -1:
                 return grid
-        for itt in range (2):
+        for itt in range (3):
             row = itt
             if((grid[row*3 + minNum]) + (grid[row*3 + minNum +1]) + (grid[row*3 + minNum + 2])) == 3:
 
@@ -95,14 +95,53 @@ def printGrid(grid, grids=3, rowLength=3):
     for row in range( rowLength):
         string = ''
         for g in range (grids):
+            if (grid[gridSize*g +row*rowLength] == 0):
+                string +=  " " + str(gridSize*g +row*rowLength)
+            else:
+                string  +=  " " + str(grid[gridSize*g +row*rowLength])
+            if (grid[gridSize* g +row*rowLength +1] == 0):
+                string +=  " " + str(gridSize*g +row*rowLength +1)
+            else:
+                string +=  " " + str(grid[gridSize* g +row*rowLength +1])
 
-            string  +=  " " + str(grid[gridSize*g +row*rowLength])
-            string +=  " " + str(grid[gridSize* g +row*rowLength +1])
-            string +=  " " + str(grid[gridSize* g +row*rowLength + 2])
+            if (grid[gridSize* g +row*rowLength +2] == 0):
+                string +=  " " + str(gridSize*g +row*rowLength +2)
+            else:
+                string +=  " " + str(grid[gridSize* g +row*rowLength +2])
+        
+
             string +=  " |\t"
         print(string)
     print('-------------------------------------------------------------------------------')
     return
+
+
+def printGridPretty(grid, grids=3, rowLength=3):
+    gridSize = int( len(grid) / grids)
+    print('-------------------------------------------------------------------------------')
+    for row in range( rowLength):
+        string = ''
+        for g in range (grids):
+            if (grid[gridSize*g +row*rowLength] == 0):
+                string +=  " " + str(gridSize*g +row*rowLength)
+            else:
+                string  +=  " x"
+            if (grid[gridSize* g +row*rowLength +1] == 0):
+                string +=  " " + str(gridSize*g +row*rowLength +1)
+            else:
+                string +=  " x"
+
+            if (grid[gridSize* g +row*rowLength +2] == 0):
+                string += " " + str(gridSize*g +row*rowLength +2)
+            else:
+                string +=  " x"
+        
+
+            string +=  " |\t"
+        print(string)
+    print('-------------------------------------------------------------------------------')
+    return
+
 
 def printAvailableSpaces(grid):
     print(grid)
